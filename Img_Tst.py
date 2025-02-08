@@ -5,7 +5,6 @@ from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.backends import default_backend
 
-
 def image_entropy(image_path):
     gray_image = Image.open(image_path).convert("L")
     pixels = np.array(gray_image)
@@ -18,7 +17,7 @@ def image_entropy(image_path):
     return entropy
 
 
-entropy = image_entropy("img (43).jpg")
+entropy = image_entropy("img_name.jpg")
 if entropy > 7:
     print(f"Good entropy. Image entropy: {entropy:.2f} bits")
 elif 7 > entropy > 3:
@@ -52,7 +51,7 @@ def generate_cryptographic_random(seed, num_bytes=16):
 
 
 def main():
-    image_path = "img (43).jpg"
+    image_path = "img_name.jpg"
 
     try:
         byte_data = extract_bits_from_image(image_path)
